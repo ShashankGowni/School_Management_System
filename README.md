@@ -23,10 +23,18 @@ The database consists of the following tables:
       4)Classes
       5)Grades
       6)Enrollments
+      
+![Screenshot 2024-08-02 164710](https://github.com/user-attachments/assets/6d9dd8be-e779-429b-95a7-bafee054e2ea)
 
+![Screenshot 2024-08-02 164718](https://github.com/user-attachments/assets/3b19b4f0-6954-41a2-a5d5-a583809a4b42)
 
+![Screenshot 2024-08-02 164730](https://github.com/user-attachments/assets/793c8a9f-7f83-429a-8151-c84299483cd1)
 
+![Screenshot 2024-08-02 164740](https://github.com/user-attachments/assets/6ab69087-8001-4962-9627-deae85058bf7)
 
+![Screenshot 2024-08-02 164749](https://github.com/user-attachments/assets/00536dda-9915-4ddf-bd46-51c153a24a71)
+
+![Screenshot 2024-08-02 164759](https://github.com/user-attachments/assets/808cc164-2782-4f0e-9016-0fbecf7f604a)
 
 #Data Insertion:
 Sample data has been inserted into the tables to demonstrate the functionality of the system. The data includes students, subjects, teachers, classes, enrollments, and grades.
@@ -62,6 +70,7 @@ Modify the scripts as per your requirements.
 ![Screenshot 2024-08-02 160540](https://github.com/user-attachments/assets/403c4350-ca73-4175-b405-523111ab766a)
 
 **Grade Table**:
+
 ![Screenshot 2024-08-02 161948](https://github.com/user-attachments/assets/2d61bd2a-e638-4778-8aa4-66e4d47a3815)
 
 **Enrollments Table**:
