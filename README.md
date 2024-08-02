@@ -59,17 +59,29 @@ Modify the scripts as per your requirements.
 
 **Results**:
 
-![Screenshot 2024-08-02 155710](https://github.com/user-attachments/assets/148dc5c2-4cd5-4258-bc6e-ae7ce0fa872f)
+**Student Table**:
 
 ![Screenshot 2024-08-02 160201](https://github.com/user-attachments/assets/041a9af0-f5a3-4c5b-8e36-6744628e7d05)
 
+**Teacher Table**:
+
+![Screenshot 2024-08-02 155710](https://github.com/user-attachments/assets/148dc5c2-4cd5-4258-bc6e-ae7ce0fa872f)
+
+**Grades Table**:
+
 ![Screenshot 2024-08-02 160540](https://github.com/user-attachments/assets/403c4350-ca73-4175-b405-523111ab766a)
+
 
 ![Screenshot 2024-08-02 161948](https://github.com/user-attachments/assets/2d61bd2a-e638-4778-8aa4-66e4d47a3815)
 
+**Join Table of Enrollments Id and  Class Id**:
+
 ![Screenshot 2024-08-02 162007](https://github.com/user-attachments/assets/262c51fe-4312-42c1-ac2c-3ad2f52eebdc)
 
+**Join Table of Teacher Id and Subject Id** :
+
 ![Screenshot 2024-08-02 162415](https://github.com/user-attachments/assets/fea40585-80d2-4476-9c29-4534b7237dd7)
+
 
 ![Screenshot 2024-08-02 162637](https://github.com/user-attachments/assets/2ca79d59-83c0-41a0-ab1c-4bbe6ccca48e)
 
