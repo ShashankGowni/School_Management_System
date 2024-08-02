@@ -23,7 +23,19 @@ The database consists of the following tables:
       4)Classes
       5)Grades
       6)Enrollments
-      
+
+![Screenshot 2024-08-02 135731](https://github.com/user-attachments/assets/9820ebfe-8014-46ff-b625-9e4961797854)
+
+![Screenshot 2024-08-02 135758](https://github.com/user-attachments/assets/6160b95f-2f98-493e-ad4f-71e110b3d825)
+
+![Screenshot 2024-08-02 135808](https://github.com/user-attachments/assets/572f8677-bb05-4216-be21-83c0924f7cfe)
+
+![Screenshot 2024-08-02 135819](https://github.com/user-attachments/assets/6b6812c2-9efb-4261-bd2a-5db8f32210a8)
+
+![Screenshot 2024-08-02 135829](https://github.com/user-attachments/assets/0b86608f-aa2b-4b11-b672-1ea18d86b86e)
+
+![Screenshot 2024-08-02 154107](https://github.com/user-attachments/assets/1489b2c5-12ec-4c1a-b789-8e4394c88b54)
+
 
 
 #Data Insertion:
