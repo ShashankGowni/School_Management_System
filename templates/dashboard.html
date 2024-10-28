@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Dashboard</h1>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card stat">
+                    <div class="card-body text-center">
+                        <h2>Total Students</h2>
+                        <p class="card-text">{{ total_students }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat">
+                    <div class="card-body text-center">
+                        <h2>Total Teachers</h2>
+                        <p class="card-text">{{ total_teachers }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat">
+                    <div class="card-body text-center">
+                        <h2>Total Courses</h2>
+                        <p class="card-text">{{ total_courses }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card stat">
+                    <div class="card-body text-center">
+                        <h2>Total Enrollments</h2>
+                        <p class="card-text">{{ total_enrollments }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card stat">
+                    <div class="card-body text-center">
+                        <h2>Total Grades</h2>
+                        <p class="card-text">{{ total_grades }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('view_students') }}" class="btn btn-info">View Students</a>
+            <a href="{{ url_for('view_teachers') }}" class="btn btn-info">View Teachers</a>
+            <a href="{{ url_for('view_courses') }}" class="btn btn-info">View Courses</a>
+            <a href="{{ url_for('view_enrollments') }}" class="btn btn-info">View Enrollments</a>
+            <a href="{{ url_for('view_grades') }}" class="btn btn-info">View Grades</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
