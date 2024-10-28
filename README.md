@@ -180,3 +180,7 @@ JOIN Classes ON Enrollments.ClassID = Classes.ClassID;
 
 **Key Differences**
 
+![Screenshot 2024-10-28 223118](https://github.com/user-attachments/assets/a5ab1740-3b57-4ef4-bf07-9b4b7da6e6ab)
+
+
+
