@@ -184,3 +184,34 @@ footer {
         height: auto; /* Ensure cards can expand on small screens */
     }
 }
+
+/* styles.css */
+
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 5%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.form-group label {
+    color: #555;
+}
+
+.alert {
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.btn-primary, .btn-primary:hover {
+    transition: all 0.3s ease;
+}

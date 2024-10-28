@@ -5,6 +5,7 @@ from mysql.connector import Error
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 # Load environment variables
 load_dotenv()
 
@@ -76,6 +77,33 @@ def login():
             else:
                 flash('Invalid username or password.')
     return render_template('login.html')
+
+# forgot_password 
+@app.route('/forgot-password', methods=['GET', 'POST'])
+def forgot_password():
+    if request.method == 'POST':
+        username = request.form['username']
+        if username in users:
+            # Normally, you would send an email here
+            session['reset_user'] = username  # Store the username temporarily in the session
+            return redirect(url_for('reset_password'))
+        else:
+            flash('Username not found', 'danger')
+    return render_template('forgot_password.html')
+
+@app.route('/reset-password', methods=['GET', 'POST'])
+def reset_password():
+    if 'reset_user' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        new_password = request.form['new_password']
+        username = session.pop('reset_user')
+        users[username]['password'] = generate_password_hash(new_password)
+        flash('Password updated successfully. Please log in.', 'success')
+        return redirect(url_for('login'))
+
+    return render_template('reset_password.html')
 
 # Dashboard
 @app.route('/dashboard')
@@ -476,7 +504,8 @@ def delete_enrollment(id):
             cursor.close()
             connection.close()
     return redirect(url_for('view_enrollments'))
-
+    
+# Grades Management
 @app.route('/grades')
 def view_grades():
     connection = create_connection()
@@ -490,6 +519,7 @@ def view_grades():
         """)
         grades = cursor.fetchall()
         cursor.close()
+        connection.close()  # Close the connection after use
         return render_template('view_grades.html', grades=grades)
     else:
         flash('Database connection failed.')
@@ -497,56 +527,90 @@ def view_grades():
 
 @app.route('/add_grade', methods=['GET', 'POST'])
 def add_grade():
-    if request.method == 'POST':
-        student_id = request.form['student_id']
-        course_id = request.form['course_id']
-        grade = request.form['grade']
+    connection = create_connection()
+    if connection:
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM students")
+        students = cursor.fetchall()
+        cursor.execute("SELECT * FROM courses")
+        courses = cursor.fetchall()
 
-        connection = create_connection()
-        cursor = connection.cursor()
-        cursor.execute("INSERT INTO grades (student_id, course_id, grade) VALUES (%s, %s, %s)",
-                       (student_id, course_id, grade))
-        connection.commit()
+        if request.method == 'POST':
+            student_id = request.form['student_id']
+            course_id = request.form['course_id']
+            grade = request.form['grade']
+            
+            # You can omit exam_id as it's now allowed to be NULL
+            try:
+                cursor.execute("INSERT INTO grades (student_id, course_id, exam_id, grade) VALUES (%s, %s, NULL, %s)",
+                               (student_id, course_id, grade))
+                connection.commit()
+                flash('Grade added successfully!')
+                return redirect(url_for('view_grades'))
+            except Error as e:
+                flash(f"Error: {e}")
+            finally:
+                cursor.close()
+                connection.close()
+
         cursor.close()
-        flash('Grade added successfully!')
-        return redirect(url_for('view_grades'))
-    
-    return render_template('add_grade.html')
+        connection.close()
+        return render_template('add_grade.html', students=students, courses=courses)
+    else:
+        flash('Database connection failed.')
+        return redirect(url_for('dashboard'))
 
 @app.route('/edit_grade/<int:grade_id>', methods=['GET', 'POST'])
 def edit_grade(grade_id):
     connection = create_connection()
-    cursor = connection.cursor(dictionary=True)
-    
-    if request.method == 'POST':
-        student_id = request.form['student_id']
-        course_id = request.form['course_id']
-        grade = request.form['grade']
-        
-        cursor.execute("UPDATE grades SET student_id = %s, course_id = %s, grade = %s WHERE id = %s",
-                       (student_id, course_id, grade, grade_id))
-        connection.commit()
-        cursor.close()
-        flash('Grade updated successfully!')
-        return redirect(url_for('view_grades'))
-    
-    cursor.execute("SELECT * FROM grades WHERE id = %s", (grade_id,))
-    grade = cursor.fetchone()
-    cursor.close()
-    return render_template('edit_grade.html', grade=grade)
+    if connection:
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM students")
+        students = cursor.fetchall()
+        cursor.execute("SELECT * FROM courses")
+        courses = cursor.fetchall()
 
-@app.route('/delete_grade/<int:id>', methods=['POST'])
-def delete_grade(id):
+        # Fetch grade details
+        cursor.execute("SELECT * FROM grades WHERE id = %s", (grade_id,))
+        grade = cursor.fetchone()
+        cursor.close()
+
+        if request.method == 'POST':
+            student_id = request.form['student_id']
+            course_id = request.form['course_id']
+            grade_value = request.form['grade']
+            cursor = connection.cursor()
+            try:
+                cursor.execute("UPDATE grades SET student_id = %s, course_id = %s, grade = %s WHERE id = %s",
+                               (student_id, course_id, grade_value, grade_id))
+                connection.commit()
+                flash('Grade updated successfully!')
+                return redirect(url_for('view_grades'))
+            except Error as e:
+                flash(f"Error: {e}")
+            finally:
+                cursor.close()
+                connection.close()
+
+        return render_template('edit_grade.html', grade=grade, students=students, courses=courses)
+    else:
+        flash('Database connection failed.')
+        return redirect(url_for('dashboard'))
+
+@app.route('/delete_grade/<int:grade_id>', methods=['POST'])
+def delete_grade(grade_id):
     connection = create_connection()
     if connection:
         cursor = connection.cursor()
         try:
-            cursor.execute("DELETE FROM grades WHERE id = %s", (id,))
+            cursor.execute("DELETE FROM grades WHERE id = %s", (grade_id,))
             connection.commit()
             flash('Grade deleted successfully!')
-        except Exception as e:
-            flash('Error deleting grade: ' + str(e))
-        cursor.close()
+        except Error as e:
+            flash(f"Error: {e}")
+        finally:
+            cursor.close()
+            connection.close()
     else:
         flash('Database connection failed.')
     return redirect(url_for('view_grades'))
