@@ -1,7 +1,6 @@
-# School_Management_System
+**School Management System**
 
-School Management System
-A comprehensive database management system for handling various aspects of a school, including students, teachers, subjects, classes, and grades.
+A comprehensive database management system for handling various aspects of a school, including students, teachers, subjects, classes, and grades. This project demonstrates a structured approach to managing school-related data and allows administrators to perform operations like adding new entries, updating records, and running queries to understand relationships between data entities.
 
 **Table of Contents**
 Introduction
@@ -10,20 +9,26 @@ Data Insertion
 Queries
 Setup Instructions
 Usage
+Results
+Differences: CRUD vs. Non-CRUD Approach
 License
-Differnces
 
-#Introduction:
-This project aims to provide a structured and efficient way to manage school data. It includes tables for students, teachers, subjects, classes, and grades, along with sample data insertion and example queries to demonstrate the relationships between the tables.
+**Introduction**
+This project aims to provide a structured and efficient way to manage school data. It includes tables for students, teachers, subjects, classes, and grades, along with sample data insertion and example queries to demonstrate the relationships between tables.
 
-Database Schema:
+**Database Schema**
 The database consists of the following tables:
-      1)Students
-      2)Subjects
-      3)Teachers
-      4)Classes
-      5)Grades
-      6)Enrollments
+Students - Stores information about each student.
+Subjects - Contains details about subjects taught in school.
+Teachers - Includes information on teachers.
+Classes - Holds data about class levels and schedules.
+Grades - Stores grade records for students.
+Enrollments - Manages the relationship between students and classes.
+The schema illustrates these relationships and demonstrates how data flows between each entity.
+
+**Database Schema Diagrams**
+
+
       
 ![Screenshot 2024-08-02 164710](https://github.com/user-attachments/assets/6d9dd8be-e779-429b-95a7-bafee054e2ea)
 
