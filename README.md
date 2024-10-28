@@ -184,5 +184,21 @@ JOIN Classes ON Enrollments.ClassID = Classes.ClassID;
 
 **Images of the CRUD operations output:**
 
+![Screenshot 2024-10-28 135619](https://github.com/user-attachments/assets/12fea58f-25ba-4c47-8ece-900567e962b8)
+
+![Screenshot 2024-10-28 223504](https://github.com/user-attachments/assets/36ed0cf5-467d-4e40-86fd-ef92aba22ceb)
+
+![Screenshot 2024-10-28 223532](https://github.com/user-attachments/assets/8dde54cb-78d1-4903-9e97-e6e5deef70a7)
+
+![Screenshot 2024-10-28 223546](https://github.com/user-attachments/assets/12d6a0b5-e9eb-4b52-846a-73bdff8c9487)
+
+![Screenshot 2024-10-28 223557](https://github.com/user-attachments/assets/f8f72950-7647-4e44-aca8-318d4006af68)
+
+![Screenshot 2024-10-28 223616](https://github.com/user-attachments/assets/0d4b7da4-a74b-4525-bf22-88939ba90b64)
+
+![Screenshot 2024-10-28 224057](https://github.com/user-attachments/assets/1540717b-9b56-4718-ba37-db9263c02a7a)
+
+![Screenshot 2024-10-28 225053](https://github.com/user-attachments/assets/683a7019-c208-429b-be90-e3c7ec5315d6)
+
 
 
