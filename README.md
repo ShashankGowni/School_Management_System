@@ -11,6 +11,7 @@ Queries
 Setup Instructions
 Usage
 License
+Differnces
 
 #Introduction:
 This project aims to provide a structured and efficient way to manage school data. It includes tables for students, teachers, subjects, classes, and grades, along with sample data insertion and example queries to demonstrate the relationships between the tables.
